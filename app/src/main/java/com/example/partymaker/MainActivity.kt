@@ -59,6 +59,5 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "onRestoreInstanceState")
         val userText = savedInstanceState.getCharSequence("savedText")
         binding.editText.setText(userText)
-
     }
 }
