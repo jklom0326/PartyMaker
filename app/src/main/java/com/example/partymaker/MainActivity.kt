@@ -22,6 +22,5 @@ class MainActivity : AppCompatActivity() {
         val selectedDate = LocalDateTime.now()
         val formatted = DateTimeFormatter.ofPattern("yyyy년 MM월")
         binding.monthYearTextView.text = selectedDate.format(formatted).toString()
-
     }
 }
