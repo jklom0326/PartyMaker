@@ -2,17 +2,19 @@ package com.example.partymaker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 import com.example.partymaker.databinding.ActivityMainBinding
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private var binding: ActivityMainBinding? = null
+    private lateinit var calandaradapter: CalendarAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.bind(view)
         setContentView(binding.root)
         setMonthView()
     }

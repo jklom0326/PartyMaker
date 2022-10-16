@@ -10,9 +10,8 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,89 +19,31 @@
         <TextView
             android:id="@+id/monthYearTextView"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:textSize="20sp"
-            tools:text="2022 FEB 1" />
+            tools:text="Party Maker" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/weekbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <TextView
+        <View
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SUN"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        <TextView
-            android:layout_width="0dp"
+        <ImageButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MON"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TUE"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="WED"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="THUR"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="FRI"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SAT"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_table_rows_24" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weekbar"
-        app:layout_constraintVertical_bias="1.0" />
-    
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
