@@ -1,5 +1,6 @@
 package com.example.partymaker
 
+import android.app.Application
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,14 +8,22 @@ import android.view.ViewGroup.LayoutParams
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partymaker.databinding.CalanderItemBinding
+import com.jakewharton.threetenabp.AndroidThreeTen
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.format.DateTimeFormatter
 
 class CalendarAdapter : RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
 
     private lateinit var days: ArrayList<String>
-
     inner class ViewHolder(private val binding: CalanderItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val dayOfMonth: TextView = binding.monthYearTextView
+        fun bind() {
+            AndroidThreeTen.init(Application())
+            val selectedDate = LocalDateTime.now()
+            val formatted = DateTimeFormatter.ofPattern("yyyy년 MM월")
+            val dayOfMonth = binding.monthYearTextView
+            dayOfMonth.text = selectedDate.format(formatted).toString()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,17 +32,10 @@ class CalendarAdapter : RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.dayOfMonth.text = days[position]
+        holder.bind()
     }
 
     override fun getItemCount(): Int {
-        return days.size
+        return 3
     }
 }
-//
-//class DateAdapter(private val view: CalendarAdapter) : RecyclerView.ViewHolder(view.root) {
-//
-//}
-
-//LayoutInflater.from(parent.context).inflate(R.layout.calendar_cell, parent, false)
-//view.layoutParams.height = (parent.height * 0.166666666).toInt()
